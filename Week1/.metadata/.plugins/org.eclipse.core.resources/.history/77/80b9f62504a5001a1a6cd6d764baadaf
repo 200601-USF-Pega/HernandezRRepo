@@ -1,0 +1,9 @@
+package com.revature.tourofheroes.service;
+
+import com.revature.tourofheros.models.Hero;
+
+public class HeroService {
+	public boolean createHero() {
+		Hero newHero = new Hero("batman", 10);
+	}
+}

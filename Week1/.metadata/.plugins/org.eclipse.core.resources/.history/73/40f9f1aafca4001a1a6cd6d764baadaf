@@ -1,0 +1,7 @@
+package com.revature.tourofheros.models;
+
+public class InvalidHealthValueException extends Exception {
+	public InvalidHealthValueException(String message) {
+		super(message);
+	}
+}

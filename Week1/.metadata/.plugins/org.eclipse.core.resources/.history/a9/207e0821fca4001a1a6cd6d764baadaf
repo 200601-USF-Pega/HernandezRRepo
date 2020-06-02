@@ -1,0 +1,5 @@
+package com.revature.tourofheros.models;
+
+public class InvalidHealthValueException {
+
+}

@@ -1,0 +1,22 @@
+import com.revature.tourofheroes.menu.MainMenu;
+import com.revature.tourofheros.exceptions.InvalidHealthValueException;
+import com.revature.tourofheros.models.Hero;
+
+public class Driver {
+
+	public static void main(String[] args){
+		// TODO Auto-generated method stub
+		MainMenu menu = new MainMenu();
+		
+		//How Many objects were created? 2
+		Object a = new Object();
+		Object b = new Object();
+		//reference to a
+		Object  c = a;
+		b = a;
+		//which is up for GC (garbage collector)? orginal object b
+		
+		
+	}
+
+}
