@@ -1,6 +1,6 @@
+import com.revature.tourofheroes.exceptions.InvalidHealthValueException;
 import com.revature.tourofheroes.menu.MainMenu;
-import com.revature.tourofheros.exceptions.InvalidHealthValueException;
-import com.revature.tourofheros.models.Hero;
+import com.revature.tourofheroes.models.Hero;
 
 
 public class Driver {
