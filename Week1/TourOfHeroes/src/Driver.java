@@ -1,15 +1,14 @@
-import com.revature.tourofheroes.exceptions.InvalidHealthValueException;
 import com.revature.tourofheroes.menu.MainMenu;
-import com.revature.tourofheroes.models.Hero;
 
 
 public class Driver {
-
-	public static void main(String[] args){
+//Class scope
+	public static void main(String[] args) {
 		// TODO Auto-generated method stub
+		//new keyword allocates space
 		
 		MainMenu menu = new MainMenu();
-		menu.mainMenu();
+		menu.start();
 		
 	}
 

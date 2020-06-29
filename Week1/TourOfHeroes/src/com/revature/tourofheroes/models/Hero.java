@@ -1,82 +1,82 @@
 package com.revature.tourofheroes.models;
+import java.io.Serializable;
 import java.util.Arrays;
 
-import com.revature.tourofheroes.exceptions.InvalidHealthValueException;
+import com.revature.tourofheroes.exceptions.InvalidHealthException;
 
 //POJO
-public class Hero {
+public class Hero implements Serializable{
+	// Instance scope
 	//attributes or fields
 	//private access modifier, encapsulates my data
 	//uses camelCase
 	private String name;
-	private String [] specialMove;
+	private String[] specialMove;
 	private int healthLevel;
 	private boolean isAlive;
 	
-	//constructor (overloading, polymorphism at runtime)
+	//constructor
 	//no args constructor, no arguments
-	public Hero() {}
+	public Hero() {
+		
+	}
+	//parameterized with parameters
+	public Hero(String name, String[] specialMove) {
+		//calls the parent constructor
+		super();
+		this.name = name;
+		this.specialMove = specialMove;
+	}
 	
-	//parameterized with parameters 
-	public Hero(String name, String [] specialMove, int healthLevel, boolean isAlive) throws InvalidHealthValueException{
+	//method overloading, polymorphism, compile time 
+	public Hero(String name, String[] specialMove, int healthLevel, boolean isAlive) {
+		//used in constructor chaining
 		this(name, specialMove);
 		this.setHealthLevel(healthLevel);
 		this.isAlive = isAlive;
 	}
-	public Hero(String name, String [] specialMove2) {
-		//calls the parent constructor (constructor not inherited)
-		super();
-		this.name = name;
-		this.specialMove = specialMove2;
-	}
-
+	
 	public String getName() {
+		//add logic on the data that's gonna be returned 
 		return name;
 	}
-
-	public void setName(String name){
-		//add some validation/logic in processing data per instance
-		//check if name is numbers
+	public void setName(String name) {
+		// add some validation/ logic in processing data per instance, 
+		//check if name is numbers, I recommend looking into RegEx
 		if(name.isEmpty()) throw new IllegalArgumentException();
 		this.name = name;
 	}
-
-	public String [] getSpecialMove() {
+	public String[] getSpecialMove() {
 		return specialMove;
 	}
-
-	public void setSpecialMove(String [] specialMove) {
+	public void setSpecialMove(String[] specialMove) {
 		this.specialMove = specialMove;
 	}
-
 	public int getHealthLevel() {
 		return healthLevel;
 	}
-
-	public void setHealthLevel(int healthLevel) throws InvalidHealthValueException{
+	public void setHealthLevel(int healthLevel){
 		if (healthLevel < 0) {
-			//throw exception
-			throw new InvalidHealthValueException();
+			// throw exception
+			throw new InvalidHealthException();
 		} else {
 			this.healthLevel = healthLevel;
 		}
+		
 	}
-
 	public boolean isAlive() {
 		return isAlive;
 	}
-
 	public void setAlive(boolean isAlive) {
 		this.isAlive = isAlive;
 	}
-
 	//annotation
+	// this method overrides another method
 	@Override
 	public String toString() {
-		return "Hero [name = " + name + ", specialMove = " + Arrays.toString(specialMove) + ", healthLevel = " + healthLevel
-				+ ", isAlive = " + isAlive + "]";
+		return "Hero [name=" + name + ", specialMove=" + Arrays.toString(specialMove) + ", healthLevel=" + healthLevel
+				+ ", isAlive=" + isAlive + "]";
 	}
-
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -85,7 +85,6 @@ public class Hero {
 		result = prime * result + ((name == null) ? 0 : name.hashCode());
 		return result;
 	}
-
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -106,6 +105,7 @@ public class Hero {
 	}
 	
 	
-		
+	
+
 	
 }
